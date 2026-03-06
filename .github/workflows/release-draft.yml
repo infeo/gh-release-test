@@ -27,7 +27,6 @@ jobs:
           echo "GitHub run number ${{ github.run_number}}." > github.txt
       - name: Create Release
         uses: softprops/action-gh-release@v2.5.0
-        if: github.ref_type == 'tag'
         with:
           name: "Test Release ${{ github.run_number }}"
           files: |
