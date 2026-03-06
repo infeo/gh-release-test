@@ -1,0 +1,14 @@
+name: Calls Release draft workflow
+
+on:
+    push
+
+permissions:
+  contents: write
+
+jobs:
+  call-release:
+    if: github.ref_type == 'tag'
+    uses: ./.github/workflows/release-draft.yml
+    with:
+        id: ${{ github.run_number}}
