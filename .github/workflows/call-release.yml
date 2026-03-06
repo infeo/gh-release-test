@@ -23,5 +23,6 @@ jobs:
   call-release:
     if: github.ref_type == 'tag'
     uses: ./.github/workflows/release-draft.yml
+    needs: [create-release]
     with:
         id: ${{ github.run_number}}
