@@ -24,12 +24,11 @@ jobs:
         run: |
           echo "File 1" > 1.txt
           echo "File 2" > 2.txt
-          echo "GitHub run number ${{ github.run_attempt}}" > github.txt
+          echo "GitHub run number ${{ github.run_number}}." > github.txt
       - name: Create Release
         uses: softprops/action-gh-release@v2.5.0
         if: github.ref_type == 'tag'
         with:
-          tag_name: test-release-${{ github.run_number }}
           name: "Test Release ${{ github.run_number }}"
           files: |
             1.txt
